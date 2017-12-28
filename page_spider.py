@@ -10,8 +10,6 @@ def main(database: str, url_list_file: str):
     print('We are going to work with "{}" database and we going to scan "{}"'
           .format(database, url_list_file))
 
-    database_utilities.create_database(database)
-
     big_word_list = []
     urls = url_utilities.load_urls_from_file(url_list_file)
     for url in urls:
@@ -20,7 +18,13 @@ def main(database: str, url_list_file: str):
         words = url_utilities.scrape_page(page_content)
         big_word_list.extend(words)
 
-    database_utilities.save_words_to_database(database, words)
+    # Database commands:
+    os.chdir(os.path.dirname(__file__))  # current path
+    # set a new path for DB file, should work the same for Win OS and Linux
+    path = os.path.join(os.getcwd(), database)
+
+    database_utilities.create_database(path=path)
+    database_utilities.save_words_to_database(database_path=path, big_word_list=words)
 
 
 if __name__ == "__main__":

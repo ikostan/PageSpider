@@ -61,6 +61,7 @@ def save_words_to_database(database_path: str, words_list: list):
 
             print(sql)
             cursor.execute(sql)
+            print('Database save complete')
 
     if db is not None:
         db.close()
