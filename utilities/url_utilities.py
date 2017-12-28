@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import string
 from urllib.request import urlopen
-
 import re
 from bs4 import BeautifulSoup
 
@@ -13,7 +12,7 @@ def load_urls_from_file(file_path: str):
     """
     try:
         with open(file_path) as file:
-            content = file.readline()
+            content = file.readlines()
             return content
     except FileNotFoundError as e:
         print('{}: {}'.format(e.strerror, e.filename))
@@ -29,7 +28,7 @@ def load_page(url: str):
     :type url: object str
     """
     response = urlopen(url)
-    html = response.read.decode('utf-8')
+    html = response.read().decode('utf-8')
     return html
 
 
@@ -38,7 +37,7 @@ def scrape_page(page_contents: str):
     Grabs the content of the web page and analyzes it
     :type page_contents: object str
     """
-    chicken_noodle = BeautifulSoup(page_contents, "html5lib")
+    chicken_noodle = BeautifulSoup(page_contents, "html.parser")
 
     for script in chicken_noodle(["script", "style"]):
         script.extract()
