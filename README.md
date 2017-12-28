@@ -16,7 +16,7 @@ Then dive into working with SQL databases. Lastly, learn how to integrate Python
 ### Src: https://www.lynda.com/Python-tutorials/Learning-Python-PyCharm/590828-2.html
 
 # NOTE: due to following error use 'html.parser' instead of 'html5lib'
-'''
+```
 Traceback (most recent call last):
   File "C:/Users/superadmin/PycharmProjects/Learning_Python_With_PyCharm/PageSpider/page_spider.py", line 28, in <module>
     main(database=database_file, url_list_file=input_file)
@@ -27,4 +27,4 @@ Traceback (most recent call last):
   File "C:\Users\superadmin\venv\PageSpider\lib\site-packages\bs4\__init__.py", line 165, in __init__
     % ",".join(features))
 bs4.FeatureNotFound: Couldn't find a tree builder with the features you requested: html5lib. Do you need to install a parser library?
-'''
+```
