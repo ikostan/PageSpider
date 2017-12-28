@@ -15,7 +15,7 @@ Then dive into working with SQL databases. Lastly, learn how to integrate Python
 
 ### Src: https://www.lynda.com/Python-tutorials/Learning-Python-PyCharm/590828-2.html
 
-# NOTE:
+### NOTE:
 due to following error use 'html.parser' instead of 'html5lib'<br/>
 ```
 Traceback (most recent call last):
