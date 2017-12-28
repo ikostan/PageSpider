@@ -20,6 +20,8 @@ def main(database: str, url_list_file: str):
         words = url_utilities.scrape_page(page_content)
         big_word_list.extend(words)
 
+    database_utilities.save_words_to_database(database, words)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

@@ -43,5 +43,24 @@ def save_words_to_database(database_path: str, words_list: list):
     :type database_path: object str
     :type words_list: object list
     """
-    # TODO: save the word to DB
-    pass
+
+    db = sqlite3.connect(database_path)
+    with db:
+        cursor = db.cursor()
+        for word in words_list:
+            # check is word in DB already
+            sql = "SELECT COUNT(*) FROM {} WHERE word='{}'".format('words', word)
+            cursor.execute(sql)
+            count = cursor.fetchone()[0]
+
+            if count > 0:
+                sql = "UPDATE {} SET {} = {} + 1 WHERE {} = '{}'"\
+                    .format('words', 'usage_count', 'usage_count', 'word', word)
+            else:
+                sql = "INSERT INTO {}({}) VALUES('{}')".format('words', 'word', word)
+
+            print(sql)
+            cursor.execute(sql)
+
+    if db is not None:
+        db.close()
