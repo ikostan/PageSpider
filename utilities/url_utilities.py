@@ -44,7 +44,7 @@ def scrape_page(page_contents: str):
 
     text = chicken_noodle.get_text()
     lines = (line.strip() for line in text.splitlines())
-    chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
+    chunks = (phrase.strip() for line in lines for phrase in line.split(" "))
 
     text = ' '.join(chunk for chunk in chunks if chunk)
     plain_text = ''.join(filter(lambda x: x in string.printable, text))

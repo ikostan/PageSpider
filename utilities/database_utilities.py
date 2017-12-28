@@ -59,9 +59,10 @@ def save_words_to_database(database_path: str, words_list: list):
             else:
                 sql = "INSERT INTO {}({}) VALUES('{}')".format('words', 'word', word)
 
-            print(sql)
+            # print(sql)
             cursor.execute(sql)
-            print('Database save complete')
+
+    print('Database save complete')
 
     if db is not None:
         db.close()
