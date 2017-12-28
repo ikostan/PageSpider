@@ -22,9 +22,10 @@ def main(database: str, url_list_file: str):
     os.chdir(os.path.dirname(__file__))  # current path
     # set a new path for DB file, should work the same for Win OS and Linux
     path = os.path.join(os.getcwd(), database)
+    print('path: {}'.format(path))
 
-    database_utilities.create_database(path=path)
-    database_utilities.save_words_to_database(database_path=path, big_word_list=words)
+    database_utilities.create_database(database_path=path)
+    database_utilities.save_words_to_database(database_path=path, words_list=words)
 
 
 if __name__ == "__main__":
