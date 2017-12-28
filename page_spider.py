@@ -12,7 +12,7 @@ def main(database: str, url_list_file: str):
     big_word_list = []
     urls = url_utilities.load_urls_from_file(url_list_file)
     for url in urls:
-        print('reading '.format(url))
+        print('reading {}'.format(url))
         page_content = url_utilities.load_page(url=url)
         words = url_utilities.scrape_page(page_content)
         big_word_list.extend(words)
